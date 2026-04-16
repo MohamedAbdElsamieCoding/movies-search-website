@@ -1,0 +1,109 @@
+:root {
+  --primary-red-color: #ffb3b6;
+  --secondary-color: #2d3449;
+  --on-primary-container: #f42f54;
+  --cinema-gold: #ffb95f;
+  --gold-dark: #ee9800;
+  --surface: #0b1326;
+  --surface-low: #131b2e;
+  --main-text-color: #94a3b8;
+  --button-gradient: linear-gradient(
+    to left,
+    var(--primary-red-color),
+    var(--on-primary-container)
+  );
+}
+
+/* Hero Section */
+.hero_section {
+  gap: 48px;
+}
+/* Header Text */
+.header_text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: start;
+}
+
+.header_text h1 {
+  color: var(--main-text-color);
+  font-size: 4rem;
+  font-weight: bold;
+}
+.header_text h1 span {
+  color: var(--primary-red-color);
+}
+
+.header_text h1 p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Buttons */
+.header_text .btns_activity {
+  display: flex;
+  gap: 1rem;
+  justify-content: start;
+  align-items: center;
+}
+.header_text .btns_activity .btns {
+  display: flex;
+}
+.header_text .btns_activity .btns .all_cinema_btn {
+  background-color: var(--primary-red-color);
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--surface-low);
+  cursor: pointer;
+}
+.header_text .btns_activity .btns .my_library_btn {
+  color: var(--main-text-color);
+  font-weight: 700;
+  padding: 8px 24px;
+  background-color: #131b2e;
+  cursor: pointer;
+}
+.header_text .btns_activity .badge {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  color: var(--gold-dark);
+  padding: 8px 16px;
+  width: fit-content;
+  gap: 8px;
+}
+
+.header_text .btns_activity .badge span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--cinema-gold);
+  border-radius: 50%;
+  position: relative;
+  box-shadow:
+    0 0 8px var(--cinema-gold),
+    0 0 16px var(--gold-dark),
+    0 0 30px rgba(255, 185, 95, 0.4);
+  flex-shrink: 0;
+}
+.header_text .btns_activity .badge p {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 4px rgba(238, 152, 0, 0.3);
+}
+
+/* Hero Grid */
+.hero_badge {
+  display: inline-flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 12px;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}

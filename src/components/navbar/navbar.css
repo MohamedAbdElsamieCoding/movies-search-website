@@ -1,0 +1,128 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 2rem;
+}
+
+/* Navbar Right */
+.navbar .navbar_right {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar .navbar_right .nav_list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1.5rem;
+}
+
+.navbar .navbar_right h1 {
+  font-family: "Manrope", sans-serif;
+  color: var(--primary-red-color);
+  letter-spacing: -0.02rem;
+  font-size: 1.5rem;
+  cursor: default;
+}
+
+.navbar .navbar_right li {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar_right li a {
+  text-decoration: none;
+  color: var(--main-text-color);
+  transition: color 0.5s ease;
+  position: relative;
+}
+
+.navbar .navbar_right li a.active {
+  color: var(--primary-red-color);
+}
+
+.navbar .navbar_right li a:hover {
+  color: var(--primary-red-color);
+}
+
+.nav_list a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: var(--cinema-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--cinema-gold);
+}
+/* Navbar Left */
+.navbar .navbar_left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .navbar_left .search form {
+  display: flex;
+  align-items: center;
+  background-color: var(--surface-low);
+  padding: 10px 10px;
+  border-radius: 10px;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.navbar .navbar_left .search .search_icon {
+  color: var(--main-text-color);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.navbar .navbar_left .search input {
+  flex: 1;
+  background: transparent;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+
+.navbar .navbar_left .search form:focus-within {
+  box-shadow: 0 0 0 2px rgba(255, 179, 182, 0.2);
+}
+
+.navbar .navbar_left .icons {
+  color: var(--main-text-color);
+  display: flex;
+  gap: 1rem;
+  font-size: x-large;
+  padding-left: 15px;
+  transition: color 0.5s ease;
+}
+
+.navbar .navbar_left .icons .setting_icon,
+.navbar .navbar_left .icons .profile_icon {
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar .navbar_left .icons .setting_icon:hover {
+  color: var(--primary-red-color);
+  transform: scale(1.2);
+}
+.navbar .navbar_left .icons .profile_icon:hover {
+  color: var(--primary-red-color);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(255, 179, 182, 0.4));
+}
