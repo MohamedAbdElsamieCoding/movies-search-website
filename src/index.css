@@ -16,7 +16,7 @@
   --main-text-color: #94a3b8;
 
   --button-gradient: linear-gradient(
-    to left,
+    to right,
     var(--primary-red-color),
     var(--on-primary-container)
   );
@@ -53,4 +53,12 @@ select {
   gap: 48px;
   padding: 1.5rem 2rem;
   max-width: 1350px;
+}
+
+.text_truncate_2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

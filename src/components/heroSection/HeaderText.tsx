@@ -14,7 +14,7 @@ const HeaderText = () => {
           <button className="my_library_btn">My Library</button>
         </div>
         <div className="badge">
-          <span></span>
+          <span className="pulse_dot"></span>
           <p>PREMIUM ACCESS ACTIVE</p>
         </div>
       </div>
