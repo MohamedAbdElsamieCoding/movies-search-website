@@ -19,7 +19,8 @@
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 24px;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 48px;
 }
