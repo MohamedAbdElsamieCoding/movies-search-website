@@ -15,7 +15,7 @@ const Navbar = () => {
     <>
       <nav>
         <div className="navbar">
-          <div className="navbar_right">
+          <div className="navbar_left">
             <h1>CINEEDITORIAL</h1>
             <ul className="nav_list">
               {navLinks.map((item) => (
@@ -34,7 +34,7 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className="navbar_left">
+          <div className="navbar_right">
             <div className="search">
               <form action="search">
                 <CiSearch className="search_icon" />

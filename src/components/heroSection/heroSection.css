@@ -1,21 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
-:root {
-  --primary-red-color: #ffb3b6;
-  --secondary-color: #2d3449;
-  --on-primary-container: #f42f54;
-  --cinema-gold: #ffb95f;
-  --gold-dark: #ee9800;
-  --surface: #0b1326;
-  --surface-low: #131b2e;
-  --main-text-color: #94a3b8;
-  --button-gradient: linear-gradient(
-    to right,
-    var(--primary-red-color),
-    var(--on-primary-container)
-  );
-}
-
 /* Hero Section */
 .hero_section {
   width: 100%;
@@ -24,6 +8,9 @@
   padding: 0 24px;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  justify-items: center;
 }
 /* Header Text */
 .header_text {
@@ -116,19 +103,11 @@
 /* Hero Grid */
 .hero_grid {
   display: grid;
-  justify-content: center;
-  grid-template-columns: 2fr 1.2fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
-  margin: 48px auto 0 auto;
   width: 100%;
   max-width: 1400px;
-}
-
-@media (max-width: 1024px) {
-  .hero_grid {
-    grid-template-columns: 1fr;
-    max-width: 800px;
-  }
+  margin: 48px auto 0 auto;
 }
 
 .secondary_column {
@@ -139,7 +118,7 @@
 
 .small_cards_wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
 }
 
