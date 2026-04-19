@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 interface BadgeProps {
-  text: string;
+  text: string | number;
   type: "editorial" | "rating" | "premium";
   icon?: ReactNode;
   className?: string;

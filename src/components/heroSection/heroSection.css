@@ -53,7 +53,7 @@
 }
 .header_text .btns_activity .btns {
   display: flex;
-  gap : 1rem
+  gap: 1rem;
 }
 .header_text .btns_activity .btns .all_cinema_btn {
   background-color: var(--primary-red-color);
@@ -125,10 +125,6 @@
 }
 
 .main_featured {
-  background:
-    linear-gradient(to top, rgba(11, 19, 38, 0.9), rgba(11, 19, 38, 0.2)),
-    url("../../imgs/bgCard.png");
-  background-repeat: no-repeat;
   border-radius: 24px;
   min-height: 450px;
   display: flex;
@@ -136,6 +132,25 @@
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 32px;
+  position: relative;
+}
+.hero_bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 19, 38, 0.9),
+    rgba(11, 19, 38, 0.2)
+  );
+  z-index: 2;
 }
 
 .grid_badge {
@@ -144,10 +159,13 @@
 }
 
 .card_content {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .card_content .badges_row {
   display: flex;
   align-items: center;
@@ -195,6 +213,15 @@
   gap: 8px;
   cursor: pointer;
 }
+.card_content .view_btn:hover {
+  transform: translateY(-2px);
+  transition: 0.3s;
+}
+
+.card_content .view_btn a {
+  font-weight: 700;
+  font-size: 14px;
+}
 .card_content .view_btn a {
   font-weight: 700;
   font-size: 14px;
@@ -206,6 +233,7 @@
   gap: 24px;
   width: 100%;
 }
+
 .small_cards_wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -219,22 +247,36 @@
   }
 }
 .small_cards_wrapper .small_card_auteur {
-  background-image: url("../../imgs/bgCard2.png");
-  background-size: cover;
-  background-color: #0b1326;
-  background-blend-mode: multiply;
-  background-position: center;
-  background-repeat: no-repeat;
+  position: relative;
   width: 100%;
   min-height: 240px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card_bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.card_overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   padding: 24px;
-  border-radius: 8px;
   color: whitesmoke;
+
+  background: linear-gradient(
+    to top,
+    rgba(11, 19, 38, 0.9),
+    rgba(11, 19, 38, 0.2)
+  );
 }
 
 .small_cards_wrapper .small_card_auteur p {

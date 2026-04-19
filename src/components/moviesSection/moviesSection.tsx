@@ -2,9 +2,13 @@ import "./moviesSection.css";
 import { FaStar } from "react-icons/fa6";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { MovieCard } from "../../types/movieCard.type";
 
 const MoviesSection = () => {
+  const IMAGE_URL = import.meta.env.VITE_IMAGE_BASE_URL;
+  const URL = `${import.meta.env.VITE_BASE_URL}/discover/movie?api_key=${import.meta.env.VITE_API_KEY}`;
+
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const scroll = (direction: string) => {
     const slider = sliderRef.current;
@@ -16,6 +20,20 @@ const MoviesSection = () => {
       slider.scrollLeft += scrollAmount;
     }
   };
+  const [movieList, setMovieList] = useState<MovieCard[]>([]);
+  const getMovies = async () => {
+    try {
+      const res = await fetch(URL);
+      if (!res.ok) throw new Error("Failed to fetch movies");
+      const json = await res.json();
+      setMovieList(json.results);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
+  useEffect(() => {
+    getMovies();
+  });
   return (
     <div className="movies_section">
       <h2>Recent Discovery</h2>
@@ -25,16 +43,21 @@ const MoviesSection = () => {
           <FaChevronLeft />
         </button>
         <div className="movies_grid" ref={sliderRef}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((movie) => (
-            <div className="movie_card" key={movie}>
-              <img src="/src/imgs/cover.png" alt="cover" />
+          {movieList.map((movie) => (
+            <div className="movie_card" key={movie.id}>
+              <img
+                src={`${IMAGE_URL}${movie.poster_path}`}
+                alt={movie.title}
+              />
               <div className="movie_info">
-                <h4>The Last Nomad</h4>
+                <h4>{movie.title}</h4>
                 <div className="meta">
-                  <span>2023 • 124m</span>
+                  <span>{movie.release_date}</span>
                   <div className="rating_section">
                     <FaStar className="star_icon" />
-                    <span className="rating">8.4</span>
+                    <span className="rating">
+                      {movie.vote_average.toFixed(1)}
+                    </span>
                   </div>
                 </div>
               </div>
