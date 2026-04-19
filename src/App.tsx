@@ -1,7 +1,9 @@
+import "./index.css";
 import HeroSection from "./components/heroSection/HeroSection";
 import Navbar from "./components/navbar/Navbar";
-import MoviesSection from "./components/moviesSection/moviesSection";
-import "./index.css"
+import NewsLetter from "./components/newsLetter/NewsLetter";
+import MoviesSection from "./components/moviesSection/MoviesSection";
+import Footer from "./components/footer/footer";
 function App() {
   return (
     <>
@@ -11,7 +13,9 @@ function App() {
       <main className="container">
         <HeroSection />
         <MoviesSection />
+        <NewsLetter />
       </main>
+      <Footer />
     </>
   );
 }

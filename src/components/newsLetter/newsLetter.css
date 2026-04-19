@@ -1,0 +1,44 @@
+.article_form {
+  display: flex;
+  justify-content: space-between;
+  padding: 48px;
+  border-radius: 16px;
+  background-color: var(--secondary-color);
+}
+
+.article_text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: auto;
+  justify-content: start;
+  color: whitesmoke;
+}
+
+.sub_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub_form .subscribe {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sub_form .subscribe input {
+  padding: 18px 24px;
+  overflow: auto;
+  border-radius: 12px;
+  background-color: var(--surface-low);
+  color: white;
+}
+
+.sub_form .subscribe .sub_btn {
+  padding: 16px 32px;
+  border-radius: 12px;
+  background-image: var(--button-gradient);
+  font-weight: 600;
+  cursor: pointer;
+}
