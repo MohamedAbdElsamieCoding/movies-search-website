@@ -23,7 +23,6 @@
   background-color: var(--surface);
   backdrop-filter: blur(50px);
   padding: 48px 32px;
-  margin-top: 48px;
 }
 
 .brand_logo {

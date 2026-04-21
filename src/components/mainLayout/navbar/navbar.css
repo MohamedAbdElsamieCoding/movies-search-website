@@ -1,3 +1,4 @@
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -125,4 +126,43 @@
   color: var(--primary-red-color);
   transform: scale(1.1);
   filter: drop-shadow(0 0 8px rgba(255, 179, 182, 0.4));
+}
+
+.search {
+  position: relative;
+}
+
+.search_dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  border-radius: 10px;
+  background-color: var(--surface-low);
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.dropdown_item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown_item img {
+  width: 40px;
+  border-radius: 4px;
+}
+
+.dropdown_item span {
+  font-size: 10;
+}
+
+.dropdown_item:hover {
+  background: var(--surface);
 }

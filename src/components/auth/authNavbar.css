@@ -1,0 +1,46 @@
+:root {
+  --primary-red-color: #ffb3b6;
+  --on-primary-container: #f42f54;
+  --cinema-gold: #ffb95f;
+  --gold-dark: #ee9800;
+  --surface: #0b1326;
+  --surface-low: #131b2e;
+  --main-text-color: #94a3b8;
+
+  --button-gradient: linear-gradient(
+    to right,
+    var(--primary-red-color),
+    var(--on-primary-container)
+  );
+}
+
+.auth_navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  background-color: #121f3c;
+}
+
+.auth_navbar h1 {
+  font-family: "Manrope", sans-serif;
+  color: var(--primary-red-color);
+  letter-spacing: -0.02rem;
+  font-size: 1.5rem;
+  cursor: default;
+}
+
+.auth_navbar button {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.auth_navbar button:hover {
+  text-decoration: underline;
+  color: var(--primary-red-color);
+}

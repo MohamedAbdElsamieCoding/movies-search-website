@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <section className="footer">
       <div className="brand_logo">
-        <h4>CINEEDITORIAL</h4>
+        <h4>AUTEUR CINEMA</h4>
         <p>© 2024 CINEEDITORIAL. THE DIGITAL AUTEUR EXPERIENCE.</p>
       </div>
       <div className="footer_links">

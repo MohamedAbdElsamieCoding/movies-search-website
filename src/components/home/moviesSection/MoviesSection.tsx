@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa6";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { useEffect, useRef, useState } from "react";
-import type { MovieCard } from "../../types/movieCard.type";
+import type { MovieCard } from "../../../types/movieCard.type";
 
 const MoviesSection = () => {
   const IMAGE_URL = import.meta.env.VITE_IMAGE_BASE_URL;

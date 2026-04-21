@@ -4,6 +4,7 @@
   padding: 48px;
   border-radius: 16px;
   background-color: var(--secondary-color);
+  margin-bottom: 48px;
 }
 
 .article_text {
