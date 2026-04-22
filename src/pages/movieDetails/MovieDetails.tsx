@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import type { MovieDetails } from "../../types/movieDetails.type";
 import type { CastMember, CrewMember } from "../../types/credits.type";
 import type { Review } from "../../types/review.type";
+import type { Video } from "../../types/video.type";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState<MovieDetails | null>(null);
@@ -15,12 +16,16 @@ const MovieDetails = () => {
   const [crew, setCrew] = useState<CrewMember[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
+  const [trailerKey, setTrailerKey] = useState<string | null>(null);
   const { id } = useParams();
 
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+  const API_KEY = import.meta.env.VITE_API_KEY;
+
   useEffect(() => {
-    const BASE_URL = import.meta.env.VITE_BASE_URL;
-    const API_KEY = import.meta.env.VITE_API_KEY;
     const fetchData = async () => {
+      const BASE_URL = import.meta.env.VITE_BASE_URL;
+      const API_KEY = import.meta.env.VITE_API_KEY;
       try {
         setLoading(true);
         const [movieRes, creditsRes, reviewRes] = await Promise.all([
@@ -31,10 +36,6 @@ const MovieDetails = () => {
         const movieData = await movieRes.json();
         const creditsData = await creditsRes.json();
         const reviewData = await reviewRes.json();
-
-        console.log(movieData);
-        console.log(creditsData);
-        console.log(reviewData);
 
         setMovie(movieData);
         setCast(creditsData.cast.slice(0, 5));
@@ -48,6 +49,17 @@ const MovieDetails = () => {
     fetchData();
   }, [id]);
 
+  const getMovieTrailer = async (movieId: number) => {
+    const res = await fetch(
+      `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`,
+    );
+    const data = await res.json();
+    const trailer = data.results.find(
+      (vid: Video) => vid.type === "Trailer" && vid.site === "YouTube",
+    );
+    return trailer?.key;
+  };
+
   const director = crew.find((person) => person.job === "Director");
 
   if (loading) {
@@ -59,6 +71,25 @@ const MovieDetails = () => {
   }
   return (
     <div className="movie_details">
+      {trailerKey && (
+        <div className="trailer_modal">
+          <div
+            className="trailer_overlay"
+            onClick={() => setTrailerKey(null)}
+          />
+          <div className="trailer_content">
+            <iframe
+              width="900"
+              height="500"
+              src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1`}
+              title="Movie Trailer"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
+
       <div className="movie_details_hero">
         <img
           src={
@@ -91,7 +122,14 @@ const MovieDetails = () => {
             </div>
           </div>
           <div className="btns">
-            <button className="trailer_btn">
+            <button
+              className="trailer_btn"
+              onClick={async () => {
+                if (!movie) return;
+                const key = await getMovieTrailer(movie.id);
+                setTrailerKey(key);
+              }}
+            >
               <FaPlay className="play_btn" />
               <p>Watch Trailer</p>
             </button>

@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import { CiSearch } from "react-icons/ci";
-import { CiSettings } from "react-icons/ci";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import type { MovieCard } from "../../../types/movieCard.type";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
+import { onAuthStateChanged, type User } from "firebase/auth";
+import { auth } from "../../../services/firebase";
 
 const Navbar = () => {
   const location = useLocation();
@@ -16,9 +17,12 @@ const Navbar = () => {
     { title: "Trending", link: "/trending" },
     { title: "Favorites", link: "/favorites" },
   ];
+
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<MovieCard[]>([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | null>(null);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!query) {
@@ -59,6 +63,12 @@ const Navbar = () => {
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) =>
+      setUser(currentUser),
+    );
+    return () => unSubscribe();
   }, []);
 
   return (
@@ -131,8 +141,19 @@ const Navbar = () => {
               )}
             </div>
             <div className="icons">
-              <CiSettings className="setting_icon" />
-              <MdOutlineAccountCircle className="profile_icon" />
+              {user ? (
+                <div
+                  className="profile_icon"
+                  onClick={() => navigate("/profile")}
+                >
+                  {user.email?.charAt(0).toUpperCase()}
+                </div>
+              ) : (
+                <MdOutlineAccountCircle
+                  className="profile_icon"
+                  onClick={() => navigate(`/auth/login`)}
+                />
+              )}
             </div>
           </div>
         </div>

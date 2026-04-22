@@ -6,14 +6,12 @@ import Badge from "./Badge";
 import { useEffect, useState } from "react";
 import type { MovieCard } from "../../../types/movieCard.type";
 import type { Genre } from "../../../types/genre.type";
-import { useNavigate } from "react-router-dom";
 
 const HeroGrid = () => {
   const IMAGE_URL = import.meta.env.VITE_IMAGE_BASE_URL;
-  const navigate = useNavigate();
 
-  const [moviesList, setMoviesList] = useState<MovieCard[]>([]);
   const [featuredMovie, setFeaturedMovie] = useState<MovieCard | null>(null);
+  const [categories, setCategories] = useState<Genre[]>([]);
 
   const getPopularMovies = async () => {
     const res = await fetch(
@@ -24,21 +22,6 @@ const HeroGrid = () => {
 
     return data.results;
   };
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const movies = await getPopularMovies();
-        setMoviesList(movies);
-        setFeaturedMovie(movies[0]);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchMovies();
-  }, []);
-
-  const [categories, setCategories] = useState<Genre[]>([]);
   const getGenre = async () => {
     const res = await fetch(
       `${import.meta.env.VITE_BASE_URL}/genre/movie/list?api_key=${import.meta.env.VITE_API_KEY}`,
@@ -47,17 +30,21 @@ const HeroGrid = () => {
     const data = await res.json();
     return data.genres;
   };
+
   useEffect(() => {
-    const fetchGenres = async () => {
+    const fetchData = async () => {
       try {
-        const genres = await getGenre();
+        const [movies, genres] = await Promise.all([
+          getPopularMovies(),
+          getGenre(),
+        ]);
+        setFeaturedMovie(movies[0] || null);
         setCategories(genres);
-        console.log(genres);
       } catch (error) {
         console.error(error);
       }
     };
-    fetchGenres();
+    fetchData();
   }, []);
 
   const genreImages: Record<string, string> = {
@@ -68,6 +55,9 @@ const HeroGrid = () => {
     Adventure: "/src/imgs/adventure.jpg",
   };
 
+  if (!featuredMovie) {
+    return <div className="hero_grid">Loading...</div>;
+  }
   return (
     <section className="hero_grid">
       <div className="main_featured">
@@ -111,13 +101,7 @@ const HeroGrid = () => {
       <div className="secondary_column">
         <div className="small_cards_wrapper">
           {categories.slice(0, 2).map((cat) => (
-            <div
-              key={cat.id}
-              className="small_card_auteur"
-              onClick={() => {
-                navigate(``);
-              }}
-            >
+            <div key={cat.id} className="small_card_auteur">
               <img
                 src={genreImages[cat.name] || "/src/imgs/bgCard.png"}
                 alt={cat.name}
