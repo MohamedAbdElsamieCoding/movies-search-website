@@ -1,18 +1,3 @@
-:root {
-  --primary-red-color: #ffb3b6;
-  --on-primary-container: #f42f54;
-  --cinema-gold: #ffb95f;
-  --gold-dark: #ee9800;
-  --surface: #0b1326;
-  --surface-low: #131b2e;
-  --main-text-color: #94a3b8;
-
-  --button-gradient: linear-gradient(
-    to right,
-    var(--primary-red-color),
-    var(--on-primary-container)
-  );
-}
 
 .auth_navbar {
   display: flex;

@@ -3,12 +3,14 @@ import { TbSparkles } from "react-icons/tb";
 import { FaArrowRight } from "react-icons/fa";
 
 import Badge from "./Badge";
-import type { MovieCard } from "../../types/movieCard.type";
 import { useEffect, useState } from "react";
-import type { Genre } from "../../types/genre.type";
+import type { MovieCard } from "../../../types/movieCard.type";
+import type { Genre } from "../../../types/genre.type";
+import { useNavigate } from "react-router-dom";
 
 const HeroGrid = () => {
   const IMAGE_URL = import.meta.env.VITE_IMAGE_BASE_URL;
+  const navigate = useNavigate();
 
   const [moviesList, setMoviesList] = useState<MovieCard[]>([]);
   const [featuredMovie, setFeaturedMovie] = useState<MovieCard | null>(null);
@@ -63,7 +65,7 @@ const HeroGrid = () => {
     Comedy: "/src/imgs/comedy.jpg",
     Drama: "/src/imgs/drama.jpg",
     Horror: "/src/imgs/horror.jpg",
-    Adventure:"/src/imgs/adventure.jpg"
+    Adventure: "/src/imgs/adventure.jpg",
   };
 
   return (
@@ -109,7 +111,13 @@ const HeroGrid = () => {
       <div className="secondary_column">
         <div className="small_cards_wrapper">
           {categories.slice(0, 2).map((cat) => (
-            <div key={cat.id} className="small_card_auteur">
+            <div
+              key={cat.id}
+              className="small_card_auteur"
+              onClick={() => {
+                navigate(``);
+              }}
+            >
               <img
                 src={genreImages[cat.name] || "/src/imgs/bgCard.png"}
                 alt={cat.name}

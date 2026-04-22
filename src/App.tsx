@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import TrendingPage from "./pages/TrendingPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import AuthLayout from "./layouts/AuthLayout";
+import MovieDetails from "./pages/movieDetails/MovieDetails";
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/trending" element={<TrendingPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<LoginPage />} />

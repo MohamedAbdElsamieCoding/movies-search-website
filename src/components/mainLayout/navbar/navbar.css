@@ -1,4 +1,3 @@
-
 /* Navbar */
 .navbar {
   display: flex;
@@ -28,7 +27,7 @@
   color: var(--primary-red-color);
   letter-spacing: -0.02rem;
   font-size: 1.5rem;
-  cursor: default;
+  cursor: pointer;
 }
 
 .navbar .navbar_left li {
@@ -81,6 +80,25 @@
   gap: 0.8rem;
   width: 100%;
   max-width: 300px;
+}
+
+.search {
+  position: relative;
+}
+
+.clear_icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #aaa;
+  transition: 0.2s;
+}
+
+.clear_icon:hover {
+  color: whitesmoke;
 }
 
 .navbar .navbar_right .search .search_icon {
