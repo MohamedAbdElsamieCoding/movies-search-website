@@ -142,10 +142,7 @@ const Navbar = () => {
             </div>
             <div className="icons">
               {user ? (
-                <div
-                  className="profile_icon"
-                  onClick={() => navigate("/profile")}
-                >
+                <div className="profile_icon">
                   {user.email?.charAt(0).toUpperCase()}
                 </div>
               ) : (

@@ -4,13 +4,13 @@ import Navbar from "../components/mainLayout/navbar/Navbar";
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="app_layout">
       <Navbar />
-      <main>
+      <main className="app_content">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

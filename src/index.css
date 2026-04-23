@@ -14,6 +14,7 @@
   --surface: #0b1326;
   --surface-low: #131b2e;
   --main-text-color: #94a3b8;
+  --secondary-color: #2d3449;
 
   --button-gradient: linear-gradient(
     to right,
@@ -48,6 +49,16 @@ select {
   outline: none;
 }
 
+.app_layout {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app_content {
+  flex: 1;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -64,4 +75,71 @@ select {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.full_loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.full_loader p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  border-top: 4px solid #e50914;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.arrow_btn {
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+  background: transparent;
+
+  border: none;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
 }

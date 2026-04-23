@@ -128,9 +128,15 @@
   transition: color 0.5s ease;
 }
 
-.navbar .navbar_right .icons .setting_icon,
-.navbar .navbar_right .icons .profile_icon {
+.navbar .navbar_right .icons .setting_icon {
   cursor: pointer;
+  transition:
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar .navbar_right .icons .profile_icon {
+  cursor: default;
   transition:
     color 0.3s ease,
     transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);

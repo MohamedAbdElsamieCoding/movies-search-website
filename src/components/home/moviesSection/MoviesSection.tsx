@@ -1,15 +1,12 @@
 import "./moviesSection.css";
-import { FaStar } from "react-icons/fa6";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { useEffect, useRef, useState } from "react";
-import type { MovieCard } from "../../../types/movieCard.type";
-import { useNavigate } from "react-router-dom";
+import type { MovieCardType } from "../../../types/movieCard.type";
+import MovieCard from "../../MovieCard";
 
 const MoviesSection = () => {
-  const IMAGE_URL = import.meta.env.VITE_IMAGE_BASE_URL;
   const URL = `${import.meta.env.VITE_BASE_URL}/discover/movie?api_key=${import.meta.env.VITE_API_KEY}`;
-  const navigate = useNavigate();
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const scroll = (direction: string) => {
@@ -22,7 +19,7 @@ const MoviesSection = () => {
       slider.scrollLeft += scrollAmount;
     }
   };
-  const [movieList, setMovieList] = useState<MovieCard[]>([]);
+  const [movieList, setMovieList] = useState<MovieCardType[]>([]);
   const getMovies = async () => {
     try {
       const res = await fetch(URL);
@@ -46,27 +43,7 @@ const MoviesSection = () => {
         </button>
         <div className="movies_grid" ref={sliderRef}>
           {movieList.map((movie) => (
-            <div
-              className="movie_card"
-              key={movie.id}
-              onClick={() => {
-                navigate(`/movie/${movie.id}`);
-              }}
-            >
-              <img src={`${IMAGE_URL}${movie.poster_path}`} alt={movie.title} />
-              <div className="movie_info">
-                <h4>{movie.title}</h4>
-                <div className="meta">
-                  <span>{movie.release_date.split("-")[0]}</span>
-                  <div className="rating_section">
-                    <FaStar className="star_icon" />
-                    <span className="rating">
-                      {movie.vote_average.toFixed(1)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <MovieCard movie={movie} />
           ))}
         </div>
         <button className="arrow_btn right" onClick={() => scroll("right")}>

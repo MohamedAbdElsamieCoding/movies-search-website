@@ -1,0 +1,57 @@
+:root {
+  --primary-red-color: #ffb3b6;
+  --on-primary-container: #f42f54;
+  --cinema-gold: #ffb95f;
+  --gold-dark: #ee9800;
+  --surface: #0b1326;
+  --surface-low: #131b2e;
+  --main-text-color: #94a3b8;
+
+  --button-gradient: linear-gradient(
+    to right,
+    var(--primary-red-color),
+    var(--on-primary-container)
+  );
+}
+
+.most_trendy {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+}
+
+.head_trend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.head_trend h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--main-text-color);
+}
+
+.head_trend p {
+  font-size: 16px;
+  color: var(--main-text-color);
+}
+
+.trend_movies {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.trend_movies::-webkit-scrollbar {
+  display: none;
+}
+.slider_wrapper {
+  position: relative;
+}
+
+.most_trendy .arrow_btn {
+  font-size: 1.5rem;
+  backdrop-filter: blur(6px);
+  color: whitesmoke;
+}

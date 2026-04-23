@@ -5,10 +5,11 @@ import MainLayout from "./layouts/MainLayout";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import HomePage from "./pages/HomePage";
-import TrendingPage from "./pages/TrendingPage";
+import TrendingPage from "./pages/trendingPage/TrendingPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import AuthLayout from "./layouts/AuthLayout";
 import MovieDetails from "./pages/movieDetails/MovieDetails";
+
 function App() {
   return (
     <>

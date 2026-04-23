@@ -1,4 +1,4 @@
-export interface MovieCard {
+export interface MovieCardType {
   id: number;
   title: string;
   name: string;
