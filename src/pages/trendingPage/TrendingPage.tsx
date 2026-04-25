@@ -56,7 +56,7 @@ const TrendingPage = () => {
               src={
                 selectedMovie?.backdrop_path
                   ? `${import.meta.env.VITE_IMAGE_BASE_URL}${selectedMovie.backdrop_path}`
-                  : "/src/imgs/cover.png"
+                  : "/imgs/cover.png"
               }
               alt="cover"
               className="movie_cover"

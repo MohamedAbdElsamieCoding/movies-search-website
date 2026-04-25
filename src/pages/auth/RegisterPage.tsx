@@ -83,7 +83,7 @@ const RegisterPage = () => {
       {error && <ErrorBanner message={error} />}
 
       <div className="auth_card">
-        <img src="/public/bgCard4.png" alt="" className="card_bg" />
+        <img src="/imgs/bgCard4.png" alt="" className="card_bg" />
 
         <div className="card_content">
           <span className="badge">THE PREMIERE CLUB</span>

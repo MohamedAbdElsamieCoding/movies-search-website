@@ -97,7 +97,7 @@ const MovieDetails = () => {
               src={
                 movie?.backdrop_path
                   ? `${import.meta.env.VITE_IMAGE_BASE_URL}${movie.backdrop_path}`
-                  : "/src/imgs/cover.png"
+                  : "/imgs/cover.png"
               }
               alt="cover"
               className="movie_cover"

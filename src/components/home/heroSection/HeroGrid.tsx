@@ -52,11 +52,11 @@ const HeroGrid = () => {
   }, []);
 
   const genreImages: Record<string, string> = {
-    Action: "/public/action.jpg",
-    Comedy: "/public/comedy.jpg",
-    Drama: "/public/drama.jpg",
-    Horror: "/public/horror.jpg",
-    Adventure: "/public/adventure.jpg",
+    Action: "/imgs/action.jpg",
+    Comedy: "/imgs/comedy.jpg",
+    Drama: "/imgs/drama.jpg",
+    Horror: "/imgs/horror.jpg",
+    Adventure: "/imgs/adventure.jpg",
   };
 
   if (!featuredMovie) {
@@ -69,7 +69,7 @@ const HeroGrid = () => {
           src={
             featuredMovie?.backdrop_path
               ? `${IMAGE_URL}${featuredMovie.backdrop_path}`
-              : "/src/imgs/gray-background.png"
+              : "/imgs/gray-background.png"
           }
           alt={featuredMovie?.title || "movie"}
           className="hero_bg"
@@ -110,7 +110,7 @@ const HeroGrid = () => {
           {categories.slice(0, 2).map((cat) => (
             <div key={cat.id} className="small_card_auteur">
               <img
-                src={genreImages[cat.name] || "/src/imgs/bgCard.png"}
+                src={genreImages[cat.name] || "/imgs/bgCard.png"}
                 alt={cat.name}
                 className="card_bg"
               />
