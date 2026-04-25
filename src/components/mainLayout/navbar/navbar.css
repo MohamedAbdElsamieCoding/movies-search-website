@@ -22,6 +22,39 @@
   gap: 1.5rem;
 }
 
+.menu_icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu_icon {
+    display: block;
+  }
+  .nav_list {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #0b1326;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    transform: translateY(-200%);
+    transition: 0.3s ease;
+  }
+  .nav_list.open {
+    transform: translateY(0);
+  }
+  .nav_list.open li {
+    display: block;
+  }
+  .navbar .navbar_left h1 {
+    font-size: 0.4rem;
+  }
+}
 .navbar .navbar_left h1 {
   font-family: "Manrope", sans-serif;
   color: var(--primary-red-color);
@@ -35,6 +68,13 @@
   cursor: pointer;
   font-weight: 500;
   transition: color 0.3s ease;
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar_left li {
+    display: block;
+  }
 }
 
 .navbar .navbar_left li a {

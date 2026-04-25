@@ -1,10 +1,21 @@
 .article_form {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding: 48px;
   border-radius: 16px;
   background-color: var(--secondary-color);
   margin-bottom: 48px;
+  text-align: center;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .article_form {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
 }
 
 .article_text {
@@ -18,14 +29,23 @@
 
 .sub_form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .sub_form .subscribe {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .sub_form .subscribe {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .sub_form .subscribe input {

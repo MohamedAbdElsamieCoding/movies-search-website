@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { auth } from "../../../services/firebase";
+import { HiMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
   const location = useLocation();
@@ -22,6 +23,7 @@ const Navbar = () => {
   const [results, setResults] = useState<MovieCardType[]>([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -77,9 +79,9 @@ const Navbar = () => {
         <div className="navbar">
           <div className="navbar_left">
             <h1 onClick={() => navigate("/")}>AUTEUR CINEMA</h1>
-            <ul className="nav_list">
+            <ul className={`nav_list ${menuOpen ? "open" : ""}`}>
               {navLinks.map((item) => (
-                <li key={item.title}>
+                <li key={item.title} onClick={() => setMenuOpen(false)}>
                   <Link
                     to={item.link}
                     className={location.pathname === item.link ? "active" : ""}
@@ -151,6 +153,9 @@ const Navbar = () => {
                   onClick={() => navigate(`/auth/login`)}
                 />
               )}
+              <div className="menu_icon" onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? <HiX /> : <HiMenu />}
+              </div>
             </div>
           </div>
         </div>
