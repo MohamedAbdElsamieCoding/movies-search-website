@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Movies App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite frontend to browse movies using The Movie Database (TMDB) API. Includes favorites, trailers, and static assets.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Browse popular and trending movies
+- Movie details, cast, reviews, and trailers
+- Mark favorites (persisted to `localStorage`)
+- Static assets served from `public/imgs`
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Vite + React + TypeScript
+- react-router
+- react-icons
 
-## Expanding the ESLint configuration
+## Environment variables
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Create a `.env` file at the project root (do not commit it). Required variables:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+VITE_BASE_URL=https://api.themoviedb.org/3
+VITE_API_KEY=YOUR_TMDB_API_KEY
+VITE_IMAGE_BASE_URL=https://image.tmdb.org/t/p/original
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+If you deploy to Vercel, add the same `VITE_*` variables in the Project > Environment Variables (Production & Preview) so Vite can embed them at build time.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Public images
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Place static images in `public/imgs`. Reference them from code as `/imgs/...` (for example: `/imgs/cover.png`).
+
+## Run locally
+
+Install deps and start dev server:
+
+```bash
+npm install
+npm run dev
 ```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## Deploying to Vercel
+
+- Add required `VITE_*` env vars in Vercel Project settings.
+- Ensure static images are in `public/imgs` (they'll be available at `/imgs/...`).
+- Re-deploy after changes.
+
+## Troubleshooting
+
+- Images missing after deploy: verify `public/imgs` contains the files and Vercel build includes them. Use `/imgs/...` paths in code.
+- Favorites not updating: confirm `FavoriteProvider` wraps the app in `src/main.tsx`.
+
+## Project structure
+
+- `src/components` — UI components
+- `src/context` — favorites context and hooks
+- `public/imgs` — static images
+
+## License
+
+MIT
