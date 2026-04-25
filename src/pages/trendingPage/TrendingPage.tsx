@@ -8,10 +8,12 @@ import { getMovieTrailer } from "../../services/moviesService";
 import MovieCard from "../../components/MovieCard";
 import "./trendingPage.css";
 import FullScreenLoader from "../../components/FullScreenLoader";
+import { useFavorite } from "../../context/useFavorite";
 
 const TrendingPage = () => {
   const [trailerKey, setTrailerKey] = useState<string | null>(null);
   const { selectedMovie, crew, loading, movieCard } = useMovies();
+  const { toggleFavorite, isFavorite } = useFavorite();
 
   const director = crew.find((person) => person.job === "Director");
 
@@ -84,7 +86,10 @@ const TrendingPage = () => {
                   <FaPlay className="play_btn" />
                   <p>Watch Trailer</p>
                 </button>
-                <button className="favorite_btn">
+                <button
+                  className={`favorite_btn  ${isFavorite(selectedMovie.id) ? "active" : ""}`}
+                  onClick={() => toggleFavorite(selectedMovie.id)}
+                >
                   <CiHeart className="heart_btn" />
                   <p>Add to Favorites</p>
                 </button>

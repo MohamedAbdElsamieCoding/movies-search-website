@@ -136,10 +136,20 @@
 }
 
 .navbar .navbar_right .icons .profile_icon {
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar .navbar_right .icons .profile_char_icon {
   cursor: default;
   transition:
     color 0.3s ease,
     transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar .navbar_right .icons .profile_char_icon:hover {
+  color: var(--primary-red-color);
+  transform: scale(1.2);
 }
 
 .navbar .navbar_right .icons .setting_icon:hover {

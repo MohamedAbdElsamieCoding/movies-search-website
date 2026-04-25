@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import type { MovieCard } from "../../../types/movieCard.type";
+import type { MovieCardType } from "../../../types/movieCard.type";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { onAuthStateChanged, type User } from "firebase/auth";
@@ -19,7 +19,7 @@ const Navbar = () => {
   ];
 
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<MovieCard[]>([]);
+  const [results, setResults] = useState<MovieCardType[]>([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
 
@@ -142,7 +142,7 @@ const Navbar = () => {
             </div>
             <div className="icons">
               {user ? (
-                <div className="profile_icon">
+                <div className="profile_char_icon">
                   {user.email?.charAt(0).toUpperCase()}
                 </div>
               ) : (

@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const HeaderText = () => {
+  const navigate = useNavigate();
   return (
     <div className="header_text">
       <h1>
@@ -10,8 +13,12 @@ const HeaderText = () => {
       </p>
       <div className="btns_activity">
         <div className="btns">
-          <button className="all_cinema_btn">All Cinema</button>
-          <button className="my_library_btn">My Library</button>
+          <button
+            className="my_library_btn"
+            onClick={() => navigate("/favorites")}
+          >
+            My Library
+          </button>
         </div>
         <div className="badge">
           <span className="pulse_dot"></span>

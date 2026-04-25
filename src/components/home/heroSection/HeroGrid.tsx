@@ -4,13 +4,17 @@ import { FaArrowRight } from "react-icons/fa";
 
 import Badge from "./Badge";
 import { useEffect, useState } from "react";
-import type { MovieCard } from "../../../types/movieCard.type";
 import type { Genre } from "../../../types/genre.type";
+import type { MovieCardType } from "../../../types/movieCard.type";
+import { useNavigate } from "react-router-dom";
 
 const HeroGrid = () => {
   const IMAGE_URL = import.meta.env.VITE_IMAGE_BASE_URL;
+  const navigate = useNavigate();
 
-  const [featuredMovie, setFeaturedMovie] = useState<MovieCard | null>(null);
+  const [featuredMovie, setFeaturedMovie] = useState<MovieCardType | null>(
+    null,
+  );
   const [categories, setCategories] = useState<Genre[]>([]);
 
   const getPopularMovies = async () => {
@@ -92,10 +96,13 @@ const HeroGrid = () => {
           </div>
           <h2>{featuredMovie?.title}</h2>
           <p className="text_truncate_2">{featuredMovie?.overview}</p>
-          <div className="view_btn">
-            <a>View Editorial</a>
+          <button
+            className="view_btn"
+            onClick={() => navigate(`/movie/${featuredMovie.id}`)}
+          >
+            View Editorial
             <FaArrowRight />
-          </div>
+          </button>
         </div>
       </div>
       <div className="secondary_column">

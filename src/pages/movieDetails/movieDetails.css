@@ -169,6 +169,17 @@
   cursor: pointer;
   transition: transform 0.2s ease-in;
 }
+
+.movie_details_hero .hero_details .btns .favorite_btn:active {
+  transform: scale(1.1);
+  color: var(--on-primary-container);
+}
+.movie_details_hero .hero_details .btns .favorite_btn.active{
+  transform: scale(1.05);
+  color: var(--on-primary-container);
+  background-color: var(--surface-low);
+}
+
 .movie_details_hero .hero_details .btns .favorite_btn:hover {
   transform: translateY(-2px);
 }

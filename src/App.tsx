@@ -6,7 +6,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import HomePage from "./pages/HomePage";
 import TrendingPage from "./pages/trendingPage/TrendingPage";
-import FavoritesPage from "./pages/FavoritesPage";
+import FavoritesPage from "./pages/favoritePage/FavoritesPage";
 import AuthLayout from "./layouts/AuthLayout";
 import MovieDetails from "./pages/movieDetails/MovieDetails";
 

@@ -211,20 +211,13 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
   cursor: pointer;
 }
 .card_content .view_btn:hover {
   transform: translateY(-2px);
   transition: 0.3s;
-}
-
-.card_content .view_btn a {
-  font-weight: 700;
-  font-size: 14px;
-}
-.card_content .view_btn a {
-  font-weight: 700;
-  font-size: 14px;
 }
 
 .secondary_column {

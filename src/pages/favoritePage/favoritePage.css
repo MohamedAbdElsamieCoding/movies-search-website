@@ -1,0 +1,12 @@
+.favorite_page {
+  padding: 1.5rem 2rem;
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+
+.favorites_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  overflow-x: unset;
+  cursor: default;
+}

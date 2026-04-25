@@ -10,6 +10,7 @@ import type { CastMember, CrewMember } from "../../types/credits.type";
 import type { Review } from "../../types/review.type";
 import type { Video } from "../../types/video.type";
 import FullScreenLoader from "../../components/FullScreenLoader";
+import { useFavorite } from "../../context/useFavorite";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState<MovieDetailsType | null>(null);
@@ -65,6 +66,7 @@ const MovieDetails = () => {
   };
 
   const director = crew.find((person) => person.job === "Director");
+  const { toggleFavorite, isFavorite } = useFavorite();
 
   return (
     <>
@@ -133,7 +135,10 @@ const MovieDetails = () => {
                   <FaPlay className="play_btn" />
                   <p>Watch Trailer</p>
                 </button>
-                <button className="favorite_btn">
+                <button
+                  className={`favorite_btn  ${isFavorite(movie!.id) ? "active" : ""}`}
+                  onClick={() => toggleFavorite(movie!.id)}
+                >
                   <CiHeart className="heart_btn" />
                   <p>Add to Favorites</p>
                 </button>
