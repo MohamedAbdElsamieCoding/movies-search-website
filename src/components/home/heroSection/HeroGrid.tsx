@@ -52,11 +52,11 @@ const HeroGrid = () => {
   }, []);
 
   const genreImages: Record<string, string> = {
-    Action: "/src/imgs/action.jpg",
-    Comedy: "/src/imgs/comedy.jpg",
-    Drama: "/src/imgs/drama.jpg",
-    Horror: "/src/imgs/horror.jpg",
-    Adventure: "/src/imgs/adventure.jpg",
+    Action: "/public/action.jpg",
+    Comedy: "/public/comedy.jpg",
+    Drama: "/public/drama.jpg",
+    Horror: "/public/horror.jpg",
+    Adventure: "/public/adventure.jpg",
   };
 
   if (!featuredMovie) {
