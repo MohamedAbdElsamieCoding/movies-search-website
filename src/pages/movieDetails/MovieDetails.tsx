@@ -80,9 +80,13 @@ const MovieDetails = () => {
                 onClick={() => setTrailerKey(null)}
               />
               <div className="trailer_content">
+                <button
+                  className="close_btn"
+                  onClick={() => setTrailerKey(null)}
+                >
+                  ✕
+                </button>
                 <iframe
-                  width="900"
-                  height="500"
                   src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1`}
                   title="Movie Trailer"
                   allow="autoplay; encrypted-media"

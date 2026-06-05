@@ -60,6 +60,9 @@
   .navbar .navbar_left h1 {
     font-size: 0.4rem;
   }
+  .nav_list li:last-child {
+    margin-bottom: 20px;
+  }
 }
 .navbar .navbar_left h1 {
   font-family: "Manrope", sans-serif;
@@ -110,6 +113,7 @@
   border-radius: 50%;
   box-shadow: 0 0 10px var(--cinema-gold);
 }
+
 /* Navbar Right */
 .navbar .navbar_right {
   display: flex;

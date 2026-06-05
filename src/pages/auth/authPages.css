@@ -266,5 +266,41 @@
   font-size: 14px;
 }
 
+@media (max-width: 768px) {
+  .auth_container {
+    padding: 12px;
+    align-items: flex-start;
+  }
 
+  .auth_card {
+    min-height: auto;
+    overflow: visible;
+  }
 
+  .auth_card .card_bg {
+    position: relative;
+    width: 100%;
+    height: 220px;
+  }
+
+  .auth_card .card_content {
+    position: relative;
+    width: 100%;
+    padding: 24px;
+  }
+
+  .auth_form_side,
+  .auth_form_side_login {
+    position: relative;
+    width: 100%;
+    padding: 24px;
+  }
+
+  .register_form .passwords_forms {
+    flex-direction: column;
+  }
+
+  .header_form {
+    margin-bottom: 24px;
+  }
+}

@@ -174,7 +174,7 @@
   transform: scale(1.1);
   color: var(--on-primary-container);
 }
-.movie_details_hero .hero_details .btns .favorite_btn.active{
+.movie_details_hero .hero_details .btns .favorite_btn.active {
   transform: scale(1.05);
   color: var(--on-primary-container);
   background-color: var(--surface-low);
@@ -341,4 +341,94 @@
   max-width: 900px;
   margin: 80px auto;
   z-index: 10000;
+}
+
+.trailer_content iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 16px;
+}
+
+.close_btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .movie_details {
+    gap: 40px;
+  }
+
+  .movie_details_hero {
+    height: 60dvh;
+  }
+
+  .movie_details_hero .hero_details {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .movie_details_hero .hero_details h1 {
+    font-size: 2rem;
+    max-width: 100%;
+  }
+
+  .movie_details_hero .hero_details .movie_direct {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .movie_details_hero .hero_details .movie_direct .director {
+    margin-bottom: 0;
+  }
+
+  .movie_details_hero .hero_details .btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .movie_details_hero .hero_details .btns button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .movie_details_layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 1rem;
+  }
+
+  .left_col {
+    gap: 40px;
+  }
+
+  .synopsis_text {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .review_card {
+    padding: 24px;
+  }
+
+  .cast_actors img {
+    width: 4rem;
+    height: 4rem;
+  }
+  .trailer_content {
+    width: 95%;
+    margin: 100px auto 0;
+  }
+
+  .trailer_content iframe {
+    border-radius: 12px;
+  }
 }
